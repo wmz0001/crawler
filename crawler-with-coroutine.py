@@ -121,7 +121,7 @@ class Fetcher:
         if not self._is_html():
             return
         urls = set(re.findall(r'''(?i)href=["']?([^\s"'<>]+)''',  # \s matches any whitespace character;
-                              self.body()))  # this is equivalent to the class [ \t\n\r\f\v].
+                              self.body()))  # (?i)ignore the case, ^ is a negation, match the group
 
         for url in urls:
             normalized = urllib.parse.urljoin(self.url, url)
