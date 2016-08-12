@@ -4,8 +4,8 @@ import logging
 import sys
 
 import crawling
-import reporting
 
+from MyCrawler import reporting
 
 ARGS = argparse.ArgumentParser(description="Web crawler")
 ARGS.add_argument(

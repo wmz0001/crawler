@@ -30,13 +30,13 @@ class Task:
     def __init__(self, coro):
         self.coro = coro
         f = Future()
-        f.set_result(None)
+        # f.set_result(None)         # it seams redundant
         self.step(f)
 
     def step(self, future):
         try:
             next_future = self.coro.send(future.result)
-            # next_future = self.coro.send(None)  # it doesn't matter what to send
+            # next_future = self.coro.send(None)  # it doesn't matter what to send in this case
 
         except StopIteration:
             return
